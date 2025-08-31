@@ -1,295 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PMC World</title>
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSSM - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #000; /* Black navbar */
-      color: #fff;
-      padding: 0.5rem 1rem;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      position: relative;
-    }
-
-    .logo img {
-      height: 50px;
-    }
-
-    /* Nav links */
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.5rem 0.8rem;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: #fd6b00; /* Orange on hover */
-      color: #fff;
-    }
-
-    /* Language dropdown */
-    .language-selector {
-      position: relative;
-    }
-
-    .language-selector select {
-      background: #fff;
-      color: #333;
-      padding: 0.3rem 0.5rem;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Volunteer button */
-    .btn-volunteer {
-      background: #000; /* same as navbar */
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border: 2px solid #fff; /* white border */
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn-volunteer:hover {
-      background: #fd6b00;
-      border-color: #fd6b00;
-      color: #fff;
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: #fff;
-    }
-
-    /* Mobile Styles */
-    @media (max-width: 900px) {
-      .hamburger {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        width: 100%;
-        background: #000;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        display: none; /* hidden by default */
-        padding: 1rem 0;
-      }
-
-      nav ul.show {
-        display: flex; /* show when toggled */
-      }
-
-      nav ul li {
-        text-align: center;
-        padding: 0.5rem 0;
-      }
-    }
-
-     .hero {
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 60vh; /* adjust as needed */
-    background: #000; /* keep black background */
-  }
-  .herobg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 60vh; /* adjust as needed */
-    background: #000; /* keep black background */
-  }
-  .hero h1 {
-    padding-top: 3%;
-    font-size: 4rem;   /* large text */
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    color: #fff;
-    line-height: 1.2;
-  }
-  .hero h2 {
-    font-size: 2rem;   /* large text */
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    color: #fff;
-    line-height: 1.2;
-  }
-
-  @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 2rem; /* smaller on mobile */
-    }
-    .hero h2 {
-    font-size: 1rem;
-  }
-  
-  }
-  .overlay {
-    background: rgba(0, 0, 0, 0.6); /* dark overlay for readability */
-    padding: 2rem;
-    border-radius: 10px;
-  }
-   .banner {
-    background-image: url("banner.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; /* make image scale */
-    border-radius: 10px;
-    width: 100%;
-    max-width: 900px;  /* limit max size */
-    aspect-ratio: 16/9; /* keeps shape responsive */
-    position: relative;
-    overflow: hidden;
-  }
-  .video-wrapper {
-    position: absolute;
-    top: 70%;
-    left: 62%;
-    width: 35%;   /* video takes 60% width of banner */
-    height: 25%;
-    aspect-ratio: 16/9;
     
-  }
-  .video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-   
-  }
-
-  /* Mobile adjustments */
-  @media (max-width: 600px) {
-    .video-wrapper {
-      width: 90%; /* take almost full width */
-    }
-  }
-  </style>
-  <script>
-    function toggleMenu() {
-      document.getElementById("nav-links").classList.toggle("show");
-    }
-  </script>
 </head>
 <body>
-  <header>
-    <nav>
-      <!-- Logo -->
-      <div class="logo">
-        <a href="#"><img src="logo.png" alt="Logo"></a>
-      </div>
+    <!-- Header Section -->
+    <header class="header-section">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <!-- Logo Section -->
+                <a class="navbar-brand" href="#">
+                    <div class="logo-container">
+                        <!-- <div class="logo-circle"> -->
+                            <div class="logo-icon">
+                                 <img src="images for home page/pmc world logo-01.png" class="hunger-img">
+                            </div>
+                        <!-- </div> -->
+                        <div class="logo-text">
+                            <div class="pmc-text">PMC WORLD</div>
+                        </div>
+                    </div>
+                </a>
 
-      <!-- Hamburger Menu -->
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
+                <!-- Navigation Links -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#meditation">Meditation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pssm">PSSM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#patriji">Patriji</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#videos">Videos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#audios">Audios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#explore">Explore</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#store">Store</a>
+                        </li>
+                    </ul>
+                </div>
 
-      <!-- Nav Links -->
-      <ul id="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Meditation</a></li>
-        <li><a href="#">About PMC World</a></li>
-        <li><a href="#">Patriji</a></li>
-        <li><a href="#">Downloads</a></li>
-        <li><a href="#">Donate</a></li>
+                <!-- Right Section -->
+            
+                <div class="header-right">
+                    <div class="social-links">
+                        <!-- <a href="#btn1"> -->
+                        <!-- <i class="fab fa-whatsapp"></i> -->
+                        <a href="#btn1" class="text-white me-3" style="color: #25D366 !important"><i class="fab fa-whatsapp fa-2x"></i></a>
+                    </div>
+                    <div class="volunteer-btn">
+                        <button class="btn btn-outline-light"> Be a Volunteer</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Language Selector -->
-        <li class="language-selector">
-          🌐 
-          <select>
-            <option value="en" selected>English</option>
-            <option value="hi">हिन्दी (Hindi)</option>
-            <option value="bn">বাংলা (Bengali)</option>
-            <option value="te">తెలుగు (Telugu)</option>
-            <option value="ta">தமிழ் (Tamil)</option>
-            <option value="mr">मराठी (Marathi)</option>
-            <option value="gu">ગુજરાતી (Gujarati)</option>
-            <option value="kn">ಕನ್ನಡ (Kannada)</option>
-            <option value="ml">മലയാളം (Malayalam)</option>
-            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-            <option value="or">ଓଡ଼ିଆ (Odia)</option>
-            <option value="as">অসমীয়া (Assamese)</option>
-            <option value="ur">اردو (Urdu)</option>
-            <option value="kok">कोंकणी (Konkani)</option>
-            <option value="sd">سنڌي (Sindhi)</option>
-            <option value="ks">کٲشُر (Kashmiri)</option>
-            <option value="ne">नेपाली (Nepali)</option>
-            <option value="ma">मैथिली (Maithili)</option>
-            <option value="sa">संस्कृत (Sanskrit)</option>
-            <option value="bho">भोजपुरी (Bhojpuri)</option>
-            <option value="dog">डोगरी (Dogri)</option>
-          </select>
-        </li>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <!-- Part 1: Top Dark Banner -->
+        <div class="dark-banner-section">
+            <div class="container">
+                <h1 class="main-heading" style="margin-top: 50px;">Awaken your inner master</h1>
+                <p class="sub-heading">"Join the Global PSSM movement and transform your life through Pyramid Meditation with guidance from meditation masters and spiritual scientists."</p>
+                  <div class="cta-buttons" id="btn1">
+                    <a href="https://wa.me/1234567890" target="_blank" class="btn btn-join">Join the Movement</a>
+                    <a href="#learn" class="btn btn-learn">Learn Meditation</a>
+                </div>
+            </div>
+             <div class="bottom-content" style="margin-top: 50px;">
+                                <img src="images for home page/home page banner 5.png" alt="Meditating People" class="meditation-group">
+                                <div class="video-thumbnail-overlay">
+                                    <div class="video-content">
+                                        <div class="video-player">
+                                            <iframe 
+                                                src="https://www.youtube.com/embed/1RwYTTTAmGs?autoplay=1&mute=1&loop=1&playlist=1RwYTTTAmGs" 
+                                                frameborder="0" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        </div>                    
+    </section>
 
-        <li><a href="index.html">Login</a></li>
-        <li><button class="btn-volunteer">Be a Volunteer</button></li>
-      </ul>
-    </nav>
-  </header>
+ <!-- Hunger Section -->
+    <section class="hunger-section py-5">
+        <div class="container-fluid px-0">
+            <!-- Dark Header -->
+             <div style="padding-left: 80px;">
+                <div class="hunger-header text-start mb-5">
+                <h2 class="hunger-question">Do you have a hunger <br>to increase the <br>quality of your life?</h2>
+            </div>
+             </div>
+            
+            <!-- 3x3 Grid -->
+            <div class="hunger-grid">
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_1" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-02.png" alt="Vegetarianism" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">VEGETARIANISM</h4>
+                    </div>
+                </div>
+                
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_2" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-03.png" alt="Patrji's Concepts" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">PATRJI'S CONCEPTS</h4>
+                    </div>
+                </div>
+                
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_3" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-04.png" alt="About the PSSM" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">ABOUT THE PSSM</h4>
+                    </div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_4" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-05.png" alt="Anapansati Meditation" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">ANAPANSATI MEDITATION</h4>
+                    </div>
+                </div>
+                
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_5" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-06.png" alt="Literature" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">LITERATURE</h4>
+                    </div>
+                </div>
+                
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_6" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-07.png" alt="Frequently Asked Questions" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">FREQUENTLY ASKED QUESTIONS</h4>
+                    </div>
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_7" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-08.png" alt="Pyramid Energy" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">PYRAMID ENERGY</h4>
+                    </div>
+                </div>
+                
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_8" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-09.png" alt="News" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">NEWS</h4>
+                    </div>
+                </div>
+                
+                <div class="hunger-card" data-video="https://www.youtube.com/embed/VIDEO_ID_9" onclick="openVideoModal(this)">
+                    <img src="images for home page/Home page images-10.png" alt="Events & Workshops" class="hunger-img">
+                    <div class="hunger-overlay">
+                        <h4 class="hunger-title">EVENTS & WORKSHOPS</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Popup Modal -->
+        <div id="videoModal" class="video-modal">
+            <div class="video-modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="video-container">
+                    <iframe id="modalVideo" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+          <!-- Why Meditation Section -->
+    <section class="why-meditation-section py-5">
+        <h2 class="meditation-main-title text-center mb-5">Why Meditation?</h2>
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Section - Image -->
+                <div class="col-lg-7">
+                    <div class="meditation-image-container">
+                        <img src="images for home page/Home page images-11.png" alt="Woman meditating" class="meditation-img">
+                    </div>
+                </div>
+                
+                <!-- Right Section - Text and Button -->
+                <div class="col-lg-5">
+                     
+                    <div class="meditation-content">
+                        <p class="meditation-description">Experience clarity, joy, <br>and spiritual evolution through daily <br> meditation.</p>
+                        <h3 class="meditation-subtitle">Why Meditation?</h3>
+                        <p class="meditation-description">Awaken the mind, heal the body, <br>and connect with your true self.</p>
+                        <button class="btn meditation-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
 
-  <main class="container">
-    <section class="hero">
-        <h1>Awaken Your</br>Inner Master</h1></br>
-        <h2>Join a global movement of meditators and seekers transforming</br> consciousness through Pyramid Spirituality.</h2></br>
-              
-      </section>
-      <!-- YouTube Video -->
-       
-    <div class="herobg">
-  <div class="banner">
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/VIDEO_ID" 
-        title="YouTube video"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-    </div>
-  </main>
+  
 
-  <footer>
-    <p>&copy; 2025 My Website</p>
-  </footer>
+    <!-- PMC World Section -->
+    <section class="pmc-world-section py-5">
+        <div class="container">
+            <!-- Text Content Section -->
+            <div class="pmc-content mb-5">
+                <h2 class="pmc-title">PMC World</h2>
+                <h3 class="pmc-subtitle">Pyramid Meditation Channel</h3><br><br>
+                <h4 class="pmc-tagline" style="text-align: left;">Transforming Lives Through Meditation</h4>
+                
+                <div class="pmc-description" style="text-align: left; word-wrap: normal;">
+                    <p>PMC is the media wing of the Pyramid Spiritual Societies Movement (PSSM), founded by Brahmarshi Pitamaha Patriji. It's a global, non-profit, and non-religious spiritual organization dedicated to transforming humanity through Anapanasati Meditation, Pyramid Power, and Vegetarianism, offered at no cost.</p>
+                    
+                    <p>The PMC World channel was inaugurated on November 11, 2024, on the occasion of the birthday of their beloved master, friend, Guru Brahmarshi Pitamaha Patriji... <span class="more-text">more</span></p>
+                </div>
+            </div>
+            
+            <!-- Images Collage Section -->
+            <div class="pmc-visuals">
+                <!-- Top Element - Video Player Area -->
+                <div class="pmc-image-container top-element">
+                    <img src="images for home page/Home page images-52.png" alt="Crowd Scene" class="pmc-img">
+                    <div class="video-background">
+                    <div class="video-overlay">
+                        <iframe 
+                            src="https://www.youtube.com/embed/1RwYTTTAmGs?autoplay=1&mute=1&loop=1&playlist=1RwYTTTAmGs" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+     <!-- Testimonials Section -->
+    <section class="testimonials-section py-5">
+        <div class="container">
+            <!-- Header Area -->
+            <div class="testimonials-header d-flex justify-content-between align-items-start mb-5">
+                <div class="header-content">
+                    <h2 class="testimonials-title">Transformative Testimonials from Senior Masters</h2>
+                    <p class="testimonials-description">Explore our videos in multiple categories below, where we explain clearly how Meditation is helpful in every category.</p>
+                </div>
+                <div class="carousel-navigation">
+                    <button class="nav-btn prev-btn" onclick="moveCarousel(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" onclick="moveCarousel(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Carousel Container -->
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Card 1 - Health -->
+                    <div class="testimonial-card">
+                        <img src="images for home page/Home page images-02.png" alt="Health" class="card-img">
+                        <div class="category-tag health-tag">HEALTH</div>
+                        <div class="hover-overlay">
+                            <div class="overlay-content">
+                                <p class="overlay-text">Meditation offers profound benefits for physical health, stress reduction, and overall wellness.</p>
+                                <button class="watch-btn">
+                                    <span>watch</span>
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 - Students -->
+                    <div class="testimonial-card">
+                        <img src="images for home page/Home page images-03.png" alt="Students" class="card-img">
+                        <div class="category-tag students-tag">STUDENTS</div>
+                        <div class="hover-overlay">
+                            <div class="overlay-content">
+                                <p class="overlay-text">Meditation offers profound benefits for memory, concentration, focus, confidence, and much more.</p>
+                                <button class="watch-btn">
+                                    <span>watch</span>
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 - Meditation -->
+                    <div class="testimonial-card">
+                        <img src="images for home page/Home page images-04.png" alt="Meditation" class="card-img">
+                        <div class="category-tag meditation-tag">MEDITATION</div>
+                        <div class="hover-overlay">
+                            <div class="overlay-content">
+                                <p class="overlay-text">Discover the transformative power of meditation for inner peace and spiritual growth.</p>
+                                <button class="watch-btn">
+                                    <span>watch</span>
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 - Wellness -->
+                    <div class="testimonial-card">
+                        <img src="images for home page/Home page images-05.png" alt="Wellness" class="card-img">
+                        <div class="category-tag wellness-tag">WELLNESS</div>
+                        <div class="hover-overlay">
+                            <div class="overlay-content">
+                                <p class="overlay-text">Enhance your overall wellness through mindful practices and meditation techniques.</p>
+                                <button class="watch-btn">
+                                    <span>watch</span>
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 - Spirituality -->
+                    <div class="testimonial-card">
+                        <img src="images for home page/Home page images-06.png" alt="Spirituality" class="card-img">
+                        <div class="category-tag spirituality-tag">SPIRITUALITY</div>
+                        <div class="hover-overlay">
+                            <div class="overlay-content">
+                                <p class="overlay-text">Connect with your spiritual self through guided meditation and spiritual practices.</p>
+                                <button class="watch-btn">
+                                    <span>watch</span>
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 - Lifestyle -->
+                    <div class="testimonial-card">
+                        <img src="images for home page/Home page images-07.png" alt="Lifestyle" class="card-img">
+                        <div class="category-tag lifestyle-tag">LIFESTYLE</div>
+                        <div class="hover-overlay">
+                            <div class="overlay-content">
+                                <p class="overlay-text">Transform your lifestyle with meditation and mindful living practices.</p>
+                                <button class="watch-btn">
+                                    <span>watch</span>
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">About PSSM</h2>
+                    <p class="lead">Professional Security and Safety Management (PSSM) is a leading provider of comprehensive security solutions.</p>
+                    <p>We specialize in delivering cutting-edge security services that protect businesses, organizations, and individuals. Our team of experienced professionals is committed to ensuring the highest standards of safety and security.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt fa-2x text-primary mb-3"></i>
+                                <h5>Security Expertise</h5>
+                                <p>Years of experience in security management</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="feature-item">
+                                <i class="fas fa-clock fa-2x text-primary mb-3"></i>
+                                <h5>24/7 Service</h5>
+                                <p>Round-the-clock protection and support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <img src="images for home page/Home page images-01.png" alt="Security Service 1" class="img-fluid rounded">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="images for home page/Home page images-02.png" alt="Security Service 2" class="img-fluid rounded">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="images for home page/Home page images-03.png" alt="Security Service 3" class="img-fluid rounded">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="images for home page/Home page images-04.png" alt="Security Service 4" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Services</h2>
+                <p class="lead">Comprehensive security solutions tailored to your needs</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <img src="images for home page/Home page images-05.png" alt="Service 1" class="img-fluid mb-3">
+                        <h4>Physical Security</h4>
+                        <p>Comprehensive physical security solutions including access control, surveillance, and patrol services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <img src="images for home page/Home page images-06.png" alt="Service 2" class="img-fluid mb-3">
+                        <h4>Cybersecurity</h4>
+                        <p>Advanced digital security measures to protect your data and systems from cyber threats.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <img src="images for home page/Home page images-07.png" alt="Service 3" class="img-fluid mb-3">
+                        <h4>Risk Assessment</h4>
+                        <p>Professional risk evaluation and mitigation strategies for your organization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <img src="images for home page/Home page images-08.png" alt="Service 4" class="img-fluid mb-3">
+                        <h4>Emergency Response</h4>
+                        <p>Rapid response teams and emergency protocols for critical situations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <img src="images for home page/Home page images-09.png" alt="Service 5" class="img-fluid mb-3">
+                        <h4>Training Programs</h4>
+                        <p>Comprehensive security training for staff and management teams.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <img src="images for home page/Home page images-10.png" alt="Service 6" class="img-fluid mb-3">
+                        <h4>Consulting</h4>
+                        <p>Expert security consulting services to optimize your security infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Gallery</h2>
+                <p class="lead">See our work in action</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-11.png" alt="Gallery 1" class="img-fluid rounded gallery-img">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-12.png" alt="Gallery 2" class="img-fluid rounded gallery-img">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-13.png" alt="Gallery 3" class="img-fluid rounded gallery-img">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-14.png" alt="Gallery 4" class="img-fluid rounded gallery-img">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-15.png" alt="Gallery 5" class="img-fluid rounded gallery-img">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-16.png" alt="Gallery 6" class="img-fluid rounded gallery-img">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-17.png" alt="Gallery 7" class="img-fluid rounded gallery-img">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <img src="images for home page/Home page images-18.png" alt="Gallery 8" class="img-fluid rounded gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Quotes Section -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-white">What Our Clients Say</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="quote-card text-center">
+                        <img src="images for home page/quotes banners-01.png" alt="Quote 1" class="img-fluid mb-3">
+                        <p class="lead">"PSSM has transformed our security infrastructure completely."</p>
+                        <h5>- John Smith, CEO</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="quote-card text-center">
+                        <img src="images for home page/quotes banners-02.png" alt="Quote 2" class="img-fluid mb-3">
+                        <p class="lead">"Professional, reliable, and always there when we need them."</p>
+                        <h5>- Sarah Johnson, Director</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="quote-card text-center">
+                        <img src="images for home page/quotes banners-03.png" alt="Quote 3" class="img-fluid mb-3">
+                        <p class="lead">"The best security partner we've ever worked with."</p>
+                        <h5>- Mike Davis, Manager</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="lead">Get in touch with our security experts</p>
+                    <div class="contact-info">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5>Address</h5>
+                                <p>123 Security Street, Safety City, SC 12345</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-phone fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <p>info@pssm.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form class="contact-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <img src="images for home page/pmc world logo-01.png" alt="PSSM Logo" class="mb-3" style="height: 80px !important; width: 80px !important;">
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white-50">Home</a></li>
+                        <li><a href="#about" class="text-white-50">About</a></li>
+                        <li><a href="#services" class="text-white-50">Services</a></li>
+                        <li><a href="#gallery" class="text-white-50">Gallery</a></li>
+                        <li><a href="#contact" class="text-white-50">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x" style="color: #1877F2 !important"></i></a>
+                        <a href="https://wa.me/1234567890" target="_blank" class="text-white me-3"><i class="fab fa-whatsapp fa-2x" style="color: #25D366 !important"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x" style=" color: #1DA1F2 !important;"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-2x" style="color: #1877F2 !important;"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram fa-2x" style=" color:  #bf2fb1 !important;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 PSSM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
